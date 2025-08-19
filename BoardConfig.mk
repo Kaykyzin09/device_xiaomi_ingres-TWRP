@@ -23,7 +23,20 @@ TARGET_2ND_CPU_VARIANT := cortex-a75
 
 # A/B
 AB_OTA_UPDATER := true
-AB_OTA_PARTITIONS ?= product system system_ext vendor vendor_dlkm odm
+AB_OTA_PARTITIONS += \
+    boot \
+    dtbo \
+    init_boot \
+    odm \
+    product \
+    recovery \
+    system \
+    system_ext \
+    vbmeta \
+    vbmeta_system \
+    vendor \
+    vendor_boot \
+    vendor_dlkm
 
 # AVB
 BOARD_AVB_ENABLE := true
@@ -124,11 +137,11 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/system/etc/recovery.fstab
 
 # Screen density
 TARGET_SCREEN_HEIGHT  := 2400
-TARGET_SCREEN_DENSITY := 560
+TARGET_SCREEN_DENSITY := 395
 TARGET_SCREEN_WIDTH   := 1080
 
 # TWRP specific build flags
-#TW_THEME := portrait_hdpi
+TW_THEME := portrait_hdpi
 RECOVERY_SDCARD_ON_DATA := true
 TARGET_RECOVERY_QCOM_RTC_FIX := true
 TW_EXCLUDE_DEFAULT_USB_INIT := true
@@ -142,10 +155,10 @@ TARGET_USES_LOGD := true
 TW_EXCLUDE_APEX := true
 TW_INCLUDE_RESETPROP := true
 TW_INCLUDE_LIBRESETPROP := true
-TW_STATUS_ICONS_ALIGN := center
-TW_CUSTOM_CPU_POS := "50"
-TW_CUSTOM_CLOCK_POS := "600"
-TW_CUSTOM_BATTERY_POS := "800"
+#TW_STATUS_ICONS_ALIGN := center
+#TW_CUSTOM_CPU_POS := "50"
+#TW_CUSTOM_CLOCK_POS := "600"
+#TW_CUSTOM_BATTERY_POS := "800"
 
 # TWRP Display flags
 TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel0-backlight/brightness"
