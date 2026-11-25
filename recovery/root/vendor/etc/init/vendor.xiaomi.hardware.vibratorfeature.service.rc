@@ -1,3 +1,4 @@
+# Ajusta permissões sysfs do driver háptico para permitir o controle pelo serviço.
 on fs
     chown system system /sys/bus/i2c/drivers/aw8697_haptic/2-005a/f0_save
     chown system system /sys/bus/i2c/drivers/aw8697_haptic/2-005a/osc_save
@@ -41,6 +42,7 @@ on fs
     chown system system /sys/bus/i2c/drivers/awinic_haptic/5-005a/custom_wave
     chown system system /sys/bus/i2c/drivers/awinic_haptic/6-005a/custom_wave
 
+# Serviço HAL que conecta a interface do vibrador do sistema ao driver do dispositivo.
 on boot
     start vibratorfeature-hal-service
 

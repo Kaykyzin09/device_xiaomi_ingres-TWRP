@@ -27,6 +27,7 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
+# Diretório pesquisado pelo ueventd ao localizar firmware solicitado pelos drivers.
 # Firmware directory Path
 # Below macro will be read by uevent and path will
 # be added to search path for firmware loading
@@ -41,6 +42,7 @@ subsystem mem_buf_vm
     dirname /dev/mem_buf_vm
 
 # the DIAG device node is not world writable/readable.
+# Regras seguintes definem permissões e proprietário dos nós de dispositivo do kernel.
 /dev/diag                 0660   system     oem_2901
 /dev/mhi_*_pipe_4         0660   system     system
 

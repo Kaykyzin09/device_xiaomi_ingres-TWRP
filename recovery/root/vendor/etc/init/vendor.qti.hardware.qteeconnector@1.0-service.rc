@@ -1,3 +1,4 @@
+# O conector QTEE é necessário no estado criptografado e após a inicialização do HAL.
 on property:ro.crypto.state=encrypted && property:hwservicemanager.ready=true
     start qteeconnector-hal-1-0
 

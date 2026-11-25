@@ -23,6 +23,7 @@ This file is copied from
 -->
 
 <manifest version="1.0" type="device">
+    <!-- Declara interfaces AIDL de KeyMint, relógio seguro e segredo compartilhado. -->
     <hal format="aidl">
         <name>android.hardware.security.keymint</name>
         <fqname>IKeyMintDevice/default</fqname>

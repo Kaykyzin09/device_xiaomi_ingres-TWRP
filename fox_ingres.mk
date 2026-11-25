@@ -19,6 +19,7 @@
 #
 
 # OrangeFox-specific settings #
+# Preferências de interface, backup e compatibilidade específicas do OrangeFox.
 OF_HIDE_NOTCH := 1
 OF_USE_GREEN_LED := 0
 OF_FLASHLIGHT_ENABLE := 1
@@ -29,15 +30,18 @@ OF_ENABLE_USB_STORAGE := 1
 OF_IGNORE_LOGICAL_MOUNT_ERRORS := 1
 
 #OFR settings
+# Número de opções apresentadas na tela de configurações do OrangeFox.
 OF_OPTIONS_LIST_NUM := 9
 
 # Recovery additional features	
+# Habilita recursos de recuperação e a recriação completa do ramdisk em A/B.
 OF_ENABLE_LPTOOLS := 1
 OF_AB_DEVICE_WITH_RECOVERY_PARTITION := 1
 OF_RECOVERY_AB_FULL_REFLASH_RAMDISK := 1
 OF_DISABLE_OTA_MENU := 1
 
 # OTA
+# Opções de compatibilidade e verificação para instalação de pacotes OTA.
 OF_NO_TREBLE_COMPATIBILITY_CHECK := 1
 OF_PATCH_AVB20 := 1
 OF_KEEP_DM_VERITY_FORCED_ENCRYPTION := 1

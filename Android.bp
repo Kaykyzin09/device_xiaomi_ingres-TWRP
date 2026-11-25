@@ -4,5 +4,6 @@
 // SPDX-License-Identifier: Apache-2.0
 //
 
+// Namespace Soong do dispositivo; permite resolver módulos declarados neste diretório.
 soong_namespace {
 }

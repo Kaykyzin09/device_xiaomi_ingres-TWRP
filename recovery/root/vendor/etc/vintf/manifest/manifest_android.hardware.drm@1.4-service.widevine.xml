@@ -14,6 +14,7 @@
      limitations under the License.
 -->
 <manifest version="1.0" type="device">
+    <!-- Registra a implementação DRM Widevine disponibilizada por este recovery. -->
     <hal format="hidl">
         <name>android.hardware.drm</name>
         <transport>hwbinder</transport>

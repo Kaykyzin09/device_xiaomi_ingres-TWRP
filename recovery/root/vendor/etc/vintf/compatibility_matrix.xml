@@ -3,6 +3,7 @@
         compatibility_matrix.xml
 -->
 <compatibility-matrix version="4.0" type="device">
+    <!-- Descreve os serviços de framework compatíveis com os componentes vendor. -->
     <hal format="hidl" optional="false">
         <name>android.frameworks.sensorservice</name>
         <version>1.0</version>

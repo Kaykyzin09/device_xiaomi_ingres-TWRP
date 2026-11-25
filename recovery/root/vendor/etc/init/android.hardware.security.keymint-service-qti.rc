@@ -3,6 +3,7 @@
 # All Rights Reserved.
 # Confidential and Proprietary - Qualcomm Technologies, Inc.
 
+# Inicia o serviço KeyMint quando o gerenciador HAL e os listeners de vendor estiverem prontos.
 on property:hwservicemanager.ready=true && property:vendor.sys.listeners.registered=true
     start keymint-qti
 

@@ -25,6 +25,7 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
+# Configura o gadget USB de recovery em configfs e expõe as funções necessárias.
 on early-fs
     setprop sys.usb.configfs 0
 
@@ -63,12 +64,14 @@ on fs
     setprop sys.usb.mtp.batchcancel 1
     setprop sys.usb.configfs 1
 
+# Aguarda o controlador definido no boot e o coloca no modo periférico.
 on property:ro.boot.usbcontroller=*
     setprop sys.usb.controller ${ro.boot.usbcontroller}
     wait /sys/bus/platform/devices/${ro.boot.usb.dwc3_msm:-a600000.ssusb}/mode
     write /sys/bus/platform/devices/${ro.boot.usb.dwc3_msm:-a600000.ssusb}/mode peripheral
     wait /sys/class/udc/${ro.boot.usbcontroller} 1
 
+# Remove funções USB anteriores antes de aplicar uma nova configuração.
 on property:sys.usb.config=none && property:sys.usb.configfs=1
     write /config/usb_gadget/g1/UDC "none"
     stop adbd
@@ -91,6 +94,7 @@ on property:sys.usb.config=adb && property:sys.usb.configfs=1
 on property:sys.usb.config=mtp,adb && property:sys.usb.configfs=1
     start adbd
 
+# Os gatilhos seguintes ligam ADB, MTP, sideload ou fastboot ao gadget configurado.
 on property:sys.usb.ffs.ready=1 && property:sys.usb.config=adb && property:sys.usb.configfs=1
     write /config/usb_gadget/g1/configs/b.1/strings/0x409/configuration "adb"
     write /config/usb_gadget/g1/idVendor 0x18D1

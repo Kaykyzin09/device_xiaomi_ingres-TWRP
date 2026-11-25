@@ -6,6 +6,7 @@
 
 LOCAL_PATH := device/xiaomi/ingres
 
+# Herda a base comum do Android, a partir da qual o produto de recovery é montado.
 # Inherit from common AOSP config
 $(call inherit-product, $(SRC_TARGET_DIR)/product/base.mk)
 
@@ -19,6 +20,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
 
 # A/B related packages
+# Habilita atualizações A/B virtuais e inclui os serviços necessários para OTA.
 ENABLE_AB := true
 ENABLE_VIRTUAL_AB := true
 
@@ -39,6 +41,7 @@ AB_OTA_POSTINSTALL_CONFIG += \
     POSTINSTALL_OPTIONAL_vendor=true
 
 # Board
+# Níveis de API usados para compatibilidade dos componentes de sistema e vendor.
 BOARD_SHIPPING_API_LEVEL := 31
 BOARD_API_LEVEL := 31
 PRODUCT_SHIPPING_API_LEVEL := 31
@@ -48,6 +51,7 @@ SHIPPING_API_LEVEL := 31
 TARGET_CONSOLE_ENABLED := true
 
 # Build
+# Exceções de build mantidas para compatibilidade com dependências desta árvore.
 BUILD_BROKEN_DUP_RULES := true
 RELAX_USES_LIBRARY_CHECK := true
 
@@ -57,6 +61,7 @@ PRODUCT_PACKAGES += \
     qcom_decrypt_fbe
 
 # Dynamic partition Handling
+# Indica que system/vendor e outras partições lógicas residem no super.
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
 # Fastbootd
@@ -82,6 +87,7 @@ TARGET_BOOTLOADER_BOARD_NAME := taro
 QCOM_BOARD_PLATFORMS += taro
 
 # Soong namespaces
+# Torna os módulos Soong deste device tree visíveis ao build.
 PRODUCT_SOONG_NAMESPACES += \
     $(DEVICE_PATH)
 

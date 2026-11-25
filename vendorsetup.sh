@@ -20,6 +20,7 @@
 FDEVICE="ingres"
 #set -o xtrace
 
+# Detecta se este script foi chamado para o dispositivo configurado acima.
 fox_get_target_device() {
 local chkdev=$(echo "$BASH_SOURCE" | grep -w $FDEVICE)
    if [ -n "$chkdev" ]; then 
@@ -35,6 +36,7 @@ if [ -z "$1" -a -z "$FOX_BUILD_DEVICE" ]; then
 fi
 
 if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
+	# Ajustes de ambiente e flags usados somente ao compilar o OrangeFox.
 	export LC_ALL="C.UTF-8"
  	export ALLOW_MISSING_DEPENDENCIES=true
  	
@@ -65,6 +67,7 @@ if [ "$1" = "$FDEVICE" -o "$FOX_BUILD_DEVICE" = "$FDEVICE" ]; then
     # Maintainer
    	export OF_MAINTAINER=SMGReborn
 
+    # Seleciona o produto de recovery definido pelos arquivos deste dispositivo.
 	lunch twrp_$FDEVICE-eng
 	# let's see what are our build VARs
 	if [ -n "$FOX_BUILD_LOG_FILE" -a -f "$FOX_BUILD_LOG_FILE" ]; then

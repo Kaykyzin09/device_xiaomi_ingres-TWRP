@@ -25,10 +25,12 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
+# Ações executadas cedo no boot do recovery para configurar escalonamento e arquivos.
 on early-fs
     write /proc/sys/walt/sched_lib_name "recovery,magiskboot,Updater,updater,update_engine_sideload"
     write /proc/sys/walt/sched_lib_mask_force 255
 
+# Ajustes de bibliotecas, permissões de dispositivos e links após os sistemas de arquivos.
 on fs
     export LD_LIBRARY_PATH /system/lib64:/vendor/lib64:/vendor/lib64/hw
     chown system system /sys/bus/i2c/drivers/aw8697_haptic/2-005a/f0_save
@@ -55,13 +57,16 @@ on fs
     chown system system /dev/ion
     install_keyring
 
+# Inicia serviços Qualcomm necessários à comunicação segura e ao controle de boot.
 on init
     start vendor.qseecomd
     start boot-hal-1-2
 
+# Configuração USB inicial e ativação de firmware/serviços após o carregamento dos módulos.
 on boot
     setprop sys.usb.config adb
 
+# Este gatilho depende da propriedade publicada quando a sequência de módulos termina.
 on property:twrp.modules.loaded=true
     # Mount firmware
     mkdir /firmware
@@ -73,6 +78,7 @@ on property:twrp.modules.loaded=true
     start health-hal-2-1
     umount /firmware
 
+# Serviços de segurança só iniciam quando os listeners de vendor estiverem prontos.
 on property:vendor.sys.listeners.registered=true
     start keymaster-4-1
     start gatekeeper-1-0

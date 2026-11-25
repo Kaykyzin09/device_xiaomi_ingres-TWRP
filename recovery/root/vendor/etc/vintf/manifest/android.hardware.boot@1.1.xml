@@ -1,4 +1,5 @@
 <manifest version="1.0" type="device">
+    <!-- Registra a versão 1.1 da interface de controle de boot oferecida pelo vendor. -->
     <hal format="hidl">
         <name>android.hardware.boot</name>
         <transport>hwbinder</transport>

@@ -1,4 +1,5 @@
 <manifest version="1.0" type="device">
+    <!-- Registra a interface Health usada para expor o estado da bateria e do dispositivo. -->
     <hal format="hidl">
         <name>android.hardware.health</name>
         <transport>hwbinder</transport>

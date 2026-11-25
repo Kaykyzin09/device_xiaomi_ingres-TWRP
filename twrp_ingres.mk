@@ -17,11 +17,13 @@ $(call inherit-product, device/xiaomi/ingres/device.mk)
 # Inherit any OrangeFox-specific settings
 $(call inherit-product-if-exists, $(DEVICE_PATH)/fox_$(PRODUCT_RELEASE_NAME).mk)
 
+# Identidade do aparelho usada pelo sistema de build e exibida pelo recovery.
 PRODUCT_DEVICE := ingres
 PRODUCT_NAME := twrp_ingres
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := Redmi K50Gaming
 PRODUCT_MANUFACTURER := xiaomi
 
+# Identificador de cliente usado por componentes Google quando aplicável.
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
