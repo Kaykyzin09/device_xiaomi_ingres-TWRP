@@ -1,5 +1,3 @@
-# Módulos carregados no ramdisk de recovery; a ordem pode refletir dependências.
-# Ao trocar o kernel, use módulos recompilados para a mesma versão e ABI.
 gh_virt_wdt.ko
 qcom_wdt_core.ko
 qcom_cpu_vendor_hooks.ko
