@@ -110,6 +110,9 @@ BOARD_USES_GENERIC_KERNEL_IMAGE := true
 BOARD_MOVE_GSI_AVB_KEYS_TO_VENDOR_BOOT := true
 BOARD_EXCLUDE_KERNEL_FROM_RECOVERY_IMAGE := true
 
+# minha modificação para que o recovery seja movido para o vendor_boot, pois o TWRP não consegue lidar com a partição recovery separada do vendor_boot
+BOARD_MOVE_RECOVERY_TO_VENDOR_BOOT := true
+
 # Partitions
 # Tamanhos e agrupamento das partições; devem corresponder ao layout real do aparelho.
 BOARD_BOOTIMAGE_PARTITION_SIZE := 100663296
